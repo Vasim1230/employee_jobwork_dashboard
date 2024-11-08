@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="input-group">
+            <!-- Week Input -->
+            <input
+              type="week"
+              id="week"
+              name="week"
+              [(ngModel)]="selectedWeek"
+              (change)="onWeekChange($event)"
+              class="week-input"
+            />
+            <button
+              type="button"
+              class="submit-button"
+              (click)="loadWeekTimeSheet()"
+            >
+              <!-- Optional Button Label Here -->
+            </button>
+
+            <!-- Date Input -->
+            <input
+              type="date"
+              id="date"
+              name="date"
+              [(ngModel)]="selectedDate"
+              (change)="selectedDateChange($event)"
+              class="date-input"
+            />
+            <button
+              type="button"
+              class="submit-button"
+              (click)="loadTimesheetByDate()"
+            >
+              <!-- Optional Button Label Here -->
+            </button>
+
+            <!-- Month Input -->
+            <input
+              type="month"
+              id="month"
+              name="month"
+              [(ngModel)]="selectedMonth"
+              (change)="selectedMonthChange($event)"
+              class="month-input"
+            />
+            <button
+              type="button"
+              class="submit-button"
+              (click)="loadTimesheetByMonth()"
+            >
+              <!-- Optional Button Label Here -->
+            </button>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <!-- Gantt chart display -->
+          <div *ngIf="chartOptions">
+            <div class="chart-container">
+              <highcharts-chart
+                [Highcharts]="Highcharts"
+                [constructorType]="'ganttChart'"
+                [options]="chartOptions"
+                style="width: 100%; height: auto; display: block;"
+              ></highcharts-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

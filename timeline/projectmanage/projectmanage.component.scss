@@ -1,0 +1,7 @@
+.chart-container {
+    height: 80vh; /* Set the height */
+    width: 100%;
+    overflow: auto; /* Enable both vertical and horizontal scrolling */
+    position: relative; /* Ensures child elements can position themselves */
+  }
+  

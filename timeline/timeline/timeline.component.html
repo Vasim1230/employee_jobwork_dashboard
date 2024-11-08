@@ -1,0 +1,24 @@
+
+<div class="col-md-12" style="height: 100vh;">
+    <div class="card" style="height: 100%;">
+        <!-- <highcharts-chart
+        [Highcharts]="Highcharts"
+        [constructorType]="'ganttChart'"
+        [(update)]="updateFlag"
+        [options]="chartOptions"
+      >
+      </highcharts-chart> -->
+
+      <highcharts-chart
+          [Highcharts]="Highcharts"
+          [options]="chartOptions"
+          
+          [constructorType]="'ganttChart'"
+          style="width: 100%; height: 100%; display: block;"
+          *ngIf="updateFlag"
+        ></highcharts-chart>
+      <!-- <button (click)="onClick()">Update and redraw</button> -->
+      
+        </div>
+    </div>
+
