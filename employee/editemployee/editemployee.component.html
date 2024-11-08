@@ -1,0 +1,134 @@
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+            <i class="fa fa-align-justify"></i> {{ name }}
+             <i class="fa fa-arrow-left" style="float: right; cursor: pointer;" (click)="openaddEmployee()"></i>
+          </div>
+  
+            <div class="card-body"> 
+              <form [formGroup]="editemployee" (ngSubmit)="editaddemployeelist()" [ngClass]="'row g-3'">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="name" placeholder="Enter Patient Name" formControlName="name"
+                           [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                    <label for="name">Name</label>
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                      <div *ngIf="f.name.errors.required">*Name is required</div>
+                      <div *ngIf="f.name.errors.pattern">*Name is invalid</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Enter e-mail address" formControlName="email"
+                           [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <label for="inputEmail4">Email</label>
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">*Email is required</div>
+                      <div *ngIf="f.email.errors.email">*Email is invalid</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="inputCity" placeholder="Enter city" formControlName="city"
+                           [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+                    <label for="inputCity">City</label>
+                    <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                      <div *ngIf="f.city.errors.required">*City is required</div>
+                      <div *ngIf="f.city.errors.pattern">*City is invalid</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="inputphoneNumber" placeholder="Enter 10-digit phone number" formControlName="phoneNumber"
+                           [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+                    <label for="inputphoneNumber">Phone Number</label>
+                    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                      <div *ngIf="f.phoneNumber.errors.required">*Phone number is required</div>
+                      <div *ngIf="f.phoneNumber.errors.minlength">Phone number must be at least 10 characters</div>
+                      <div *ngIf="f.phoneNumber.errors.maxlength">Phone number must not exceed 10 characters</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <select id="inputstate" class="form-select" placeholder="choose" formControlName="state" 
+                            [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+                      <option value="" disabled>Select State</option>
+                      <option>AP</option>
+                      <option>KL</option>
+                      <option>TO</option>
+                      <option>TN</option>
+                    </select>
+                    <label for="inputstate">State</label>
+                    <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                      <div *ngIf="f.state.errors.required">*State is required</div>
+                      <div *ngIf="f.state.errors.pattern">*State is invalid</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="inputZip" placeholder="enter zip" formControlName="zip"
+                           [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" />
+                    <label for="inputZip">Zip</label>
+                    <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
+                      <div *ngIf="f.zip.errors.required">*Zip is required</div>
+                      <div *ngIf="f.zip.errors.pattern">*Zip is invalid</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-6">
+                  <label class="form-label">Gender</label><br>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineCheckbox1" formControlName="gender"
+                           name="gender" value="Male" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                    <label class="form-check-label" for="inlineCheckbox1">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineCheckbox2" formControlName="gender"
+                           name="gender" value="Female">
+                    <label class="form-check-label" for="inlineCheckbox2">Female</label>
+                  </div>
+                  <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                    <div *ngIf="f.gender.errors.required">*Gender is required</div>
+                  </div>
+                </div> 
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <textarea class="form-control" id="inputaddress" placeholder=" " formControlName="address"
+                      [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+                    </textarea>
+                    <label for="inputaddress">Address</label>
+                  </div>
+                  <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                    <div *ngIf="f.address.errors.required">*Address is required</div>
+                    <div *ngIf="f.address.errors.pattern">*Address is invalid</div>
+                  </div>
+                </div>
+                
+            
+            <div class="card-footer col-12 text-right">
+              
+              <button type="submit" class="btn btn-primary" style="margin: 5px;">submit</button>
+            </div>
+             
+              </form>
+             
+            </div>
+    
+           
+        
+    </div>
+    
+  
+            

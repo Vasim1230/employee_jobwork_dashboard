@@ -1,0 +1,66 @@
+<div class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" style="position: relative;
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <strong>My JobWork</strong>
+            <select id="jobworkHolder" (change)="setJobworkHolder($event.target.value)">
+              <option *ngFor="let holder of uniqueJobworkHolders" [value]="holder">{{ holder }}</option>
+            </select>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card">
+                  <!-- <div class="card-header">
+                    Total Jobwork vs Actual Completion
+                  </div> -->
+                  <div class="card-body">
+                    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions1"></highcharts-chart>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <!-- <div class="card-header">
+                    Jobwork completion on time
+
+                  </div> -->
+                  <div class="card-body">
+                    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions2"></highcharts-chart>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <!-- <div class="card-header">
+                    Jobwork completion on time
+
+                  </div> -->
+                  <div class="card-body">
+                    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions3"></highcharts-chart>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <!-- <div class="card-header">
+                    Jobwork completion on time
+
+                  </div> -->
+                  <div class="card-body">
+                    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions4"></highcharts-chart>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+:host {
+    display: block;
+    margin: 20px;
+  }
+::ng-deep svg.highcharts-root {
+    width:50%;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    height: 50%;
+    color: rgb(177, 49, 49);
+}  
+::ng-deep.main .container-fluid {
+  padding: 0px;
+}
+
+::ng-deep highcharts-chart .highcharts-container{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+::ng-deep highcharts-chart .highcharts-container svg{
+  width: 100% !important;
+  height: 100% !important;
+}

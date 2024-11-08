@@ -1,0 +1,10 @@
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+::ng-deep.main .container-fluid {
+    padding: 0px 5px;
+}

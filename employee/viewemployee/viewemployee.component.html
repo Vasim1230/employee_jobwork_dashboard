@@ -1,0 +1,82 @@
+
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+            <i class="fa fa-align-justify"></i> Simple Table
+            <i class="fa fa-arrow-left" style="float: right; cursor: pointer;" (click)="openaddEmployee()"></i>
+          </div>
+  
+            <div class="card-body"> 
+              <form [formGroup]="viewemployee"  [ngClass]="'row g-3'">
+                <div class="col-md-6">
+                  <label for="input" class="form-label">Name</label>
+                  <input class="form-control" placeholder="Enter Patient Name" formControlName="name"readonly>
+                  </div>
+                  
+                
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Email</label>
+                  <input class="form-control" placeholder="Enter e-mail address" formControlName="email"readonly>
+                 
+                </div>
+                
+                <div class="col-md-6">
+                  <label for="inputCity" class="form-label">City</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Enter city"formControlName="city"readonly>
+                  
+                </div>
+                <div class="col-md-6">
+                  <label for="inputphoneNumber" class="form-label">PhoneNumber</label>
+                  <input class="form-control" placeholder="Enter 10-digit phone number" formControlName="phoneNumber"readonly>
+                  
+                </div>
+              
+                <div class="col-md-6">
+                  <label for="inputstate" class="form-label">State</label>
+                  <input id="inputstate" class="form-select" placeholder="choose" formControlName="state" readonly>
+                  
+                    
+                </div>
+                <div class="col-md-6">
+                  <label for="inputZip" class="form-label">Zip</label>
+                  <input type="text" class="form-control" id="inputZip" placeholder="enter zip" formControlName="zip"readonly>
+                  
+                </div>
+                <div class="col-6">
+                  <label class="form-label">Gender</label><br>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineCheckbox" formControlName="gender"
+                      name="gender" value="Male" disabled>
+  
+                    <label class="form-check-label" for="inlineCheckbox1">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+  
+                    <input class="form-check-input" type="radio" id="inlineCheckbox" formControlName="gender"
+                      name="gender" value="Female" disabled>
+                    <label class="form-check-label" for="inlineCheckbox2">Female</label>
+  
+                  </div>
+                  
+                 
+                </div>
+                <div class="col-6">
+                  <label for="inputaddress" class="form-label">Address</label>
+                  <textarea class="form-control" id="inputaddress" placeholder="enter address" formControlName="address"readonly></textarea>
+                 
+                 
+              
+                  
+            
+                </div>
+             
+                </form>
+             
+            
+        
+      </div>  
+    </div>
+</div>
+  
+            

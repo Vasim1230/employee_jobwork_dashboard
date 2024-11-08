@@ -1,0 +1,114 @@
+.task-container {
+    
+    gap: 3px; 
+}
+
+.list-item {
+    border-left: 5px solid transparent; 
+    padding-left: 10px; 
+    margin-bottom: 10px; 
+    background-attachment: fixed;
+}
+
+.Todo .list-item {
+    border-left-color: #007bff; 
+}
+
+
+.InProgress .list-item {
+    border-left-color: #28a745; 
+}
+
+.Completed .list-item {
+    border-left-color: #ffc107; 
+}
+
+.pending .list-item {
+    border-left-color: #dc3545;
+}
+
+.overdue .list-item {
+    border-left-color: #6f42c1;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap; 
+   
+}
+
+// .col {
+//     flex: 1; 
+//     min-width: 250px;
+//     max-width: 50%; 
+// }
+
+.p-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0; 
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    
+    
+}
+::ng-deep.p-chip {
+    background-color: rgb(46, 60, 63);
+    color: white;
+   
+}
+.list-item[_ngcontent-xpw-c103] {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 13px;
+    margin-bottom: 8px;
+    transition: background-color 0.3s;
+}
+
+.p-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+::ng-deep .p-card .p-card-body {
+    padding: 2px;
+    
+}
+::ng-deep.p-card .p-card-content {
+    padding: 2px 0;
+}
+
+.list {
+    margin: 0; 
+    padding: 2px; 
+    background-color: #f9f9f9; 
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+  }
+
+
+.list-item {
+    background-color: #fff;
+    border: 1px solid; 
+    border-radius: 4px; 
+    padding: 12px;
+    margin-bottom: 8px; 
+    transition: background-color 0.3s; 
+}
+
+.list-item:hover {
+    background-color: whitesmoke;
+}
+
+.task-body h4 {
+    margin: 0; 
+}
+
+.task-footer {
+    margin-top: 8px; 
+    font-size: 0.9em; 
+    color: blue; 
+}
+
+.dt {
+    font-size: 0.8em; 
+    color: black; 
+}

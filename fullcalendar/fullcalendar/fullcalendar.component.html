@@ -1,0 +1,12 @@
+<div class="container">
+  <!-- External Events -->
+  <div id="external-events" #externalEvents class="external-events">
+    <p>Drag and drop events</p>
+    <div class="fc-event" *ngFor="let event of calendarOptions.events" [attr.data-id]="event.id">
+      {{ event.title }}
+    </div>
+  </div>
+
+  <!-- FullCalendar -->
+  <div #calendar id="calendar" class="calendar"></div>
+</div>

@@ -1,0 +1,155 @@
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+            <i class="fa fa-align-justify"></i> Simple Table
+            <i class="fa fa-arrow-left" style="float: right; cursor: pointer;" (click)="openaddstudent()" ></i>
+          </div>
+  
+            <div class="card-body"> 
+              <form [formGroup]="addstudent" (ngSubmit)="submitform()" [ngClass]="'row g-3'">
+                <div class="col-md-6">
+                    <label for="input" class="form-label">Name</label>
+                    <input class="form-control" placeholder="Enter Patient Name" formControlName="name"
+                      [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                      <div *ngIf="f.name.errors.required">*Name is required</div>
+                      <div *ngIf="f.name.errors.pattern">*Name is invalid</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="name">Age: <span class="reqField">*</span></label>
+                    <input class="form-control" placeholder="Enter  Age" formControlName="age"
+                      [ngClass]="{ 'is-invalid': submitted && f.age.errors }" />
+                    <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                      <div *ngIf="f.age.errors.required">*Age is required</div>
+                      <div *ngIf="f.age.errors.pattern">*Age is invalid</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="name">Select Date of Birth: <span class="reqField">*</span></label><br>
+                    <div class="input-group">
+                      <input class="form-control"type="date"formControlName="dob"
+                        [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                      <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                        <div *ngIf="f.dob.errors.required">*Date of birth is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="inputstate" class="form-label">Blood Group</label>
+                    <select id="inputstate" class="form-select" formControlName="bloodGroup"
+                      [ngClass]="{ 'is-invalid': submitted && f.bloodGroup.errors }">
+                      <option>A+</option>
+                      <option>A-</option>
+                      <option>B+</option>
+                      <option>B-</option>
+                    </select>
+                    <div *ngIf="submitted && f.bloodGroup.errors" class="invalid-feedback">
+                      <div *ngIf="f.bloodGroup.errors.required">*Blood group is required</div>
+                      <div *ngIf="f.bloodGroup.errors.pattern">*Blood group is invalid</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputstate" class="form-label">Current Standard</label>
+                    <select id="inputstate" class="form-select" formControlName="currentStd"
+                      [ngClass]="{ 'is-invalid': submitted && f.currentStd.errors }">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                    <div *ngIf="submitted && f.currentStd.errors" class="invalid-feedback">
+                      <div *ngIf="f.currentStd.errors.required">*Current standard is required</div>
+                      <div *ngIf="f.currentStd.errors.pattern">*Current standard is invalid</div>
+                    </div>
+                  </div>
+                 
+                  
+                  <div class="col-md-6">
+                    <label for="input" class="form-label">Father's Name</label>
+                    <input class="form-control" placeholder="Enter Father's Name" formControlName="fatherName"
+                      [ngClass]="{ 'is-invalid': submitted && f.fatherName.errors }" />
+                    <div *ngIf="submitted && f.fatherName.errors" class="invalid-feedback">
+                      <div *ngIf="f.fatherName.errors.required">*Father's name is required</div>
+                      <div *ngIf="f.fatherName.errors.pattern">*Father's name is invalid</div>
+                    </div>
+                  </div>
+                  
+                 
+                  
+                  <div class="col-md-6">
+                    <label for="inputphoneNumber" class="form-label">Phone Number</label>
+                    <input class="form-control" placeholder="Enter 10-digit phone number" formControlName="phoneNumber"
+                      [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+                    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                      <div *ngIf="f.phoneNumber.errors.required">*Phone number is required</div>
+                      <div *ngIf="f.phoneNumber.errors.minlength">Phone number must be at least 10 characters</div>
+                      <div *ngIf="f.phoneNumber.errors.maxlength">Phone number must not exceed 10 characters</div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-6">
+                    <label class="form-label">Gender</label><br>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" formControlName="gender"
+                        name="gender" value="Male" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                      <label class="form-check-label" for="inlineCheckbox1">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" formControlName="gender"
+                        name="gender" value="Female" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                      <label class="form-check-label" for="inlineCheckbox2">Female</label>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="inputjoiningDate" class="form-label">Joining Date</label>
+                    <input class="form-control" type="date" formControlName="joiningDate"
+                      [ngClass]="{ 'is-invalid': submitted && f.joiningDate.errors }" />
+                    <div *ngIf="submitted && f.joiningDate.errors" class="invalid-feedback">
+                      <div *ngIf="f.joiningDate.errors.required">*Joining date is required</div>
+                      <div *ngIf="f.joiningDate.errors.pattern">*Joining date is invalid</div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="inputjoiningTime" class="form-label">Joining Time</label>
+                    <input class="form-control" type="time" formControlName="joiningTime"
+                      [ngClass]="{ 'is-invalid': submitted && f.joiningTime.errors }" />
+                    <div *ngIf="submitted && f.joiningTime.errors" class="invalid-feedback">
+                      <div *ngIf="f.joiningTime.errors.required">*Joining time is required</div>
+                      <div *ngIf="f.joiningTime.errors.pattern">*Joining time is invalid</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputaddress" class="form-label">Address</label>
+                    <textarea class="form-control" id="inputaddress" placeholder="enter address" formControlName="address"
+                    [ngClass]="{ 'is-invalid': submitted && f.address.errors }" >
+                   
+                    </textarea>
+                    <div *ngIf="submitted && f.address.errors " class="invalid-feedback">
+                      <div *ngIf="f.address.errors.required">*address is required</div>
+                      <div *ngIf="f.address.errors.pattern">*address is invalid</div>
+                    </div>
+                  </div>
+                  <div class="card-footer col-12 text-right">
+                    <button   (click)="oncancle()" class="btn btn-secondary"  >Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="margin: 5px;">Save</button>
+                  </div>
+               
+             
+              </form>
+             
+            </div>
+      </div>
+    </div>
+  
+        
+    </div>
+  
+            
+             
+            

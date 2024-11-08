@@ -1,0 +1,207 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <strong>Total Time Taken and Total Time Assigned</strong>
+        <label for="timeDropdown1" class="sr-only">Date Filter</label>
+        <select id="timeDropdown1" (change)="filterData($event.target.value)">
+          <option value="week">This Week</option>
+          <option value="today">Today</option>
+          <option value="yesterday">Yesterday</option>
+          <option value="monthly">This Month</option>
+          <option value="yearly">This Year</option>
+        </select>
+      </div>
+      <div class="card-body">
+        <div *ngIf="chartOptions">
+          <apx-chart 
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [dataLabels]="chartOptions.dataLabels"
+            [plotOptions]="chartOptions.plotOptions"
+            [yaxis]="chartOptions.yaxis"
+            [legend]="chartOptions.legend"
+            [fill]="chartOptions.fill"
+            [stroke]="chartOptions.stroke"
+            [tooltip]="chartOptions.tooltip"
+            [xaxis]="chartOptions.xaxis">
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <strong>Total Time Taken and Total Time Assigned</strong>
+        <label for="timeDropdown2" class="sr-only">Date Filter</label>
+        <select id="timeDropdown2" (change)="filterData1($event.target.value)">
+          <option value="week">This Week</option>
+          <option value="today">Today</option>
+          <option value="yesterday">Yesterday</option>
+          <option value="monthly">This Month</option>
+          <option value="yearly">This Year</option>
+        </select>
+      </div>
+      <div class="card-body">
+        <div *ngIf="chartOptions1">
+          <apx-chart
+            [series]="chartOptions1.series"
+            [chart]="chartOptions1.chart"
+            [dataLabels]="chartOptions1.dataLabels"
+            [plotOptions]="chartOptions1.plotOptions"
+            [xaxis]="chartOptions1.xaxis"
+            [stroke]="chartOptions1.stroke"
+            [fill]="chartOptions1.fill"
+            [yaxis]="chartOptions1.yaxis"
+            [title]="chartOptions1.title"
+            [tooltip]="chartOptions1.tooltip"
+            [legend]="chartOptions1.legend">
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <strong>Invoice</strong>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <strong>Proforma Invoice</strong>
+            <label for="invoiceDropdown1" class="sr-only">Date Filter</label>
+            <select id="invoiceDropdown1" (change)="filterData2($event.target.value)">
+              <option value="week">Week</option>
+              <option value="weekly">Weekly</option>
+              <option value="today">Today</option>
+              <option value="yesterday">Yesterday</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">This Year</option>
+            </select>
+          </div>
+          <div class="card-body">
+            <div *ngIf="chartOptions2">
+              <apx-chart 
+                [series]="chartOptions2.series"
+                [chart]="chartOptions2.chart"
+                [dataLabels]="chartOptions2.dataLabels"
+                [plotOptions]="chartOptions2.plotOptions"
+                [yaxis]="chartOptions2.yaxis"
+                [legend]="chartOptions2.legend"
+                [fill]="chartOptions2.fill"
+                [stroke]="chartOptions2.stroke"
+                [tooltip]="chartOptions2.tooltip"
+                [xaxis]="chartOptions2.xaxis">
+              </apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <strong>Linked Invoice</strong>
+            <label for="invoiceDropdown2" class="sr-only">Date Filter</label>
+            <select id="invoiceDropdown2" (change)="filterData3($event.target.value)">
+              <option value="week">Week</option>
+              <option value="weekly">Weekly</option>
+              <option value="today">Today</option>
+              <option value="yesterday">Yesterday</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">This Year</option>
+            </select>
+          </div>
+          <div class="card-body">
+            <div *ngIf="chartOptions3">
+              <apx-chart 
+                [series]="chartOptions3.series"
+                [chart]="chartOptions3.chart"
+                [dataLabels]="chartOptions3.dataLabels"
+                [plotOptions]="chartOptions3.plotOptions"
+                [yaxis]="chartOptions3.yaxis"
+                [legend]="chartOptions3.legend"
+                [fill]="chartOptions3.fill"
+                [stroke]="chartOptions3.stroke"
+                [tooltip]="chartOptions3.tooltip"
+                [xaxis]="chartOptions3.xaxis">
+              </apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <strong>Normal Invoice</strong>
+            <label for="invoiceDropdown3" class="sr-only">Date Filter</label>
+            <select id="invoiceDropdown3" (change)="filterData4($event.target.value)">
+              <option value="week">Week</option>
+              <option value="weekly">Weekly</option>
+              <option value="today">Today</option>
+              <option value="yesterday">Yesterday</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">This Year</option>
+            </select>
+          </div>
+          <div class="card-body">
+            <div *ngIf="chartOptions4">
+              <apx-chart 
+                [series]="chartOptions4.series"
+                [chart]="chartOptions4.chart"
+                [dataLabels]="chartOptions4.dataLabels"
+                [plotOptions]="chartOptions4.plotOptions"
+                [yaxis]="chartOptions4.yaxis"
+                [legend]="chartOptions4.legend"
+                [fill]="chartOptions4.fill"
+                [stroke]="chartOptions4.stroke"
+                [tooltip]="chartOptions4.tooltip"
+                [xaxis]="chartOptions4.xaxis">
+              </apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <strong>Product Invoice</strong>
+            <label for="invoiceDropdown3" class="sr-only">Date Filter</label>
+            <select id="invoiceDropdown3" (change)="filterData5($event.target.value)">
+              <option value="week">Week</option>
+              <option value="weekly">Weekly</option>
+              <option value="today">Today</option>
+              <option value="yesterday">Yesterday</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">This Year</option>
+            </select>
+          </div>
+          <div class="card-body">
+            <div *ngIf="chartOptions5">
+              <apx-chart 
+                [series]="chartOptions5.series"
+                [chart]="chartOptions5.chart"
+                [dataLabels]="chartOptions5.dataLabels"
+                [plotOptions]="chartOptions5.plotOptions"
+                [yaxis]="chartOptions5.yaxis"
+                [legend]="chartOptions5.legend"
+                [fill]="chartOptions5.fill"
+                [stroke]="chartOptions5.stroke"
+                [tooltip]="chartOptions5.tooltip"
+                [xaxis]="chartOptions5.xaxis">
+              </apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

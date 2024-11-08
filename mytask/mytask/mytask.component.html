@@ -1,0 +1,41 @@
+<div class="task-container" style="display: flex; flex-wrap: nowrap;  padding: 0;">
+  <div class="col-lg-" *ngFor="let data of todos" style="position: relative;
+    padding-right: 0px;
+    padding-left: 0px;
+"> <!-- Changed margin to 0 -->
+  
+    <p-card pDroppable class="Todo custom-card" (onDrop)="drop(data.status)">
+  
+      <strong>
+        <span>{{ data.status }}</span>
+      </strong>
+      <div class="list">
+        <ng-container *ngFor="let task of data.tasks">
+          <div class="list-item" pDraggable (onDragStart)="dragStart(task)" (onDragEnd)="dragEnd()">
+            <div class="dt">{{ task.createdOn | date: 'dd MMM yyyy' }}</div>
+            <div class="task-body">
+              <p>{{ task.name }}</p>
+              <p>{{ task.descripition }} 
+                <img *ngIf="task.imageUrl" 
+                     [src]="task.imageUrl" 
+                     alt="Task Image" 
+                     style="max-width: 100%; height: auto;" 
+                     (click)="showImageDialog(task.imageUrl)" />
+              </p>
+            </div>
+            <div class="task-footer flex justify-content-between">
+              <span><i class="pi pi-user mr-2"></i>{{ task.assignee }}</span>
+              <p-chip styleClass="flex-auto" [label]="task.status | titlecase"></p-chip>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      
+      <p-dialog header="Image Preview" [(visible)]="displayImageDialog" [modal]="true"
+            [style]="{width: '30vw', maxWidth: '400px'}" [baseZIndex]="10000">
+            <img [src]="selectedImage" alt="Document Image" style="width: 100%; height: auto;">
+      </p-dialog>
+    
+    </p-card>
+  </div>
+</div>

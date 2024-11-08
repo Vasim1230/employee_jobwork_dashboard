@@ -1,0 +1,254 @@
+<div class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <strong>My JobWork</strong>
+              <select id="jobworkHolder" (change)="setJobworkHolder($event.target.value)">
+                <option value="" disabled selected>Select Case No</option>
+                <option *ngFor="let holder of uniqueJobworkHolders" [value]="holder">{{ holder }}</option>
+              </select>
+            </div>
+  
+            <div class="card-body">
+              <div *ngIf="caseNoName">
+                <div *ngIf="getSelectedJobDetails().length > 0">
+                  <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="flex: 1; padding: 10px; font-size: 15px;">
+                      <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <p><strong>Case No:</strong> {{ getSelectedJobDetails()[0].caseNo }}</p>
+                        <p><strong>Patient Name:</strong> {{ getSelectedJobDetails()[0].patientName }}</p>
+                        <p><strong>Total Visit:</strong> {{ getSelectedJobDetails()[0].createdOn }}</p>
+                      </div>
+                    </div>
+  
+                    <div style="flex: 1; padding: 10px; font-size: 15px;">
+                      <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <p><strong>Category:</strong> {{ getSelectedJobDetails()[0].createdOn }}</p>
+                        <p><strong>Doctor Name:</strong> {{ getSelectedJobDetails()[0].createdOn }}</p>
+                        <p><strong>Notes:</strong> {{ getSelectedJobDetails()[0].createdOn }}</p>
+                      </div>
+                    </div>
+  
+                    <div style="flex: 1; padding: 10px; font-size: 15px;">
+                      <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <p><strong>Date:</strong> {{ getSelectedJobDetails()[0].createdOn }}</p>
+                        <p><strong>Estimation:</strong> {{ getSelectedJobDetails()[0].createdOn }}</p>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!-- Tabs for Data -->
+                  <p-tabView [(activeIndex)]="activeIndex" [scrollable]="true">
+                    <!-- Loop over visits (tabs) -->
+                    <p-tabPanel *ngFor="let job of doc">
+                      <ng-template pTemplate="header">
+                        <div (click)="fetchData(job.visitId)" style="cursor: pointer;">
+                          {{ job.visitId }}
+                        </div>
+                      </ng-template>
+                    </p-tabPanel>
+                  </p-tabView>
+                </div>
+  
+                <div *ngIf="hasAnyTabData">
+                  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <!-- Activity Tab -->
+                    <li class="nav-item" role="presentation" *ngIf="selectedActivityData.length > 0">
+                      <button class="nav-link active"  id="pills-activity-tab" data-bs-toggle="pill" data-bs-target="#pills-activity" type="button" role="tab" aria-controls="pills-activity" aria-selected="f">
+                        Activity Details
+                      </button>
+                    </li>
+  
+                    <!-- Symptoms Tab -->
+                    <li class="nav-item" role="presentation" *ngIf="selectedSymptomData.length > 0">
+                      <button class="nav-link"  id="pills-symptoms-tab" data-bs-toggle="pill" data-bs-target="#pills-symptoms" type="button" role="tab" aria-controls="pills-symptoms" aria-selected="false">
+                        Symptoms
+                      </button>
+                    </li>
+  
+                    <!-- Vitals Tab -->
+                    <li class="nav-item" role="presentation" *ngIf="selectedVitalData.length > 0">
+                      <button class="nav-link" id="pills-vitals-tab" data-bs-toggle="pill" data-bs-target="#pills-vitals" type="button" role="tab" aria-controls="pills-vitals" aria-selected="false">
+                        Vitals
+                      </button>
+                    </li>
+  
+                    <!-- Prescription Tab -->
+                    <li class="nav-item" role="presentation" *ngIf="selectedPrescriptionData.length > 0">
+                      <button class="nav-link" id="pills-prescription-tab" data-bs-toggle="pill" data-bs-target="#pills-prescription" type="button" role="tab" aria-controls="pills-prescription" aria-selected="false">
+                        Prescription
+                      </button>
+                    </li>
+  
+                    <!-- Laboratory Tab -->
+                    <li class="nav-item" role="presentation" *ngIf="selectedLaboratoryData.length > 0">
+                      <button class="nav-link"  id="pills-laboratory-tab" data-bs-toggle="pill" data-bs-target="#pills-laboratory" type="button" role="tab" aria-controls="pills-laboratory" aria-selected="false">
+                        Laboratory
+                      </button>
+                    </li>
+  
+                    <!-- Document Tab -->
+                    <li class="nav-item" role="presentation" *ngIf="selectedDocumentData.length > 0">
+                      <button class="nav-link"  id="pills-document-tab" data-bs-toggle="pill" data-bs-target="#pills-document" type="button" role="tab" aria-controls="pills-document" aria-selected="false">
+                        Document
+                      </button>
+                    </li>
+                  </ul>
+  
+                  <div class="tab-content" id="pills-tabContent">
+                    <!-- Activity Content -->
+                    <div class="tab-pane fade" id="pills-activity" role="tabpanel" aria-labelledby="pills-activity-tab" *ngIf="selectedActivityData.length > 0">
+                      <h5>Activity Details</h5>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Activity Name</th>
+                            <th>Activity Group</th>
+                            <th>Activity Order</th>
+                            <th>Activity Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let activity of selectedActivityData">
+                            <td>{{ activity.activityName }}</td>
+                            <td>{{ activity.activityGroup }}</td>
+                            <td>{{ activity.activityOrder }}</td>
+                            <td>{{ activity.activityDescription }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+  
+                    <!-- Symptoms Content -->
+                    <div class="tab-pane fade" id="pills-symptoms" role="tabpanel" aria-labelledby="pills-symptoms-tab" *ngIf="selectedSymptomData.length > 0">
+                      <h5>Symptoms</h5>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Symptoms</th>
+                            <th>Short Description</th>
+                            <th>Notes</th>
+                            <th>Symptom ID</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let symptom of selectedSymptomData">
+                            <td>{{ symptom.symptoms }}</td>
+                            <td>{{ symptom.shortDescription }}</td>
+                            <td>{{ symptom.symptomNotes }}</td>
+                            <td>{{ symptom.sympId }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+  
+                    <!-- Vitals Content -->
+                    <div class="tab-pane fade" id="pills-vitals" role="tabpanel" aria-labelledby="pills-vitals-tab" *ngIf="selectedVitalData.length > 0">
+                      <h5>Vital Signs</h5>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Record Key</th>
+                            <th>Temperature</th>
+                            <th>Height</th>
+                            <th>Weight</th>
+                            <th>Blood Pressure</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let vital of selectedVitalData">
+                            <td>{{ vital.recordKey }}</td>
+                            <td>{{ vital.temp || 'N/A' }}</td>
+                            <td>{{ vital.height || 'N/A' }}</td>
+                            <td>{{ vital.weight || 'N/A' }}</td>
+                            <td>{{ vital.bp || 'N/A' }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+  
+                    <!-- Prescription Content -->
+                    <div class="tab-pane fade" id="pills-prescription" role="tabpanel" aria-labelledby="pills-prescription-tab" *ngIf="selectedPrescriptionData.length > 0">
+                      <h5>Prescription Details</h5>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Type</th>
+                            <th>Prescription</th>
+                            <th>Route</th>
+                            <th>Take</th>
+                            <th>Description</th>
+                            <th>Dosage</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let prescription of selectedPrescriptionData">
+                            <td>{{ prescription.prescriptiontype }}</td>
+                            <td>{{ prescription.prescription }}</td>
+                            <td>{{ prescription.route }}</td>
+                            <td>{{ prescription.take }}</td>
+                            <td>{{ prescription.description }}</td>
+                            <td>{{ prescription.dosage }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+  
+                    <!-- Laboratory Content -->
+                    <div class="tab-pane fade" id="pills-laboratory" role="tabpanel" aria-labelledby="pills-laboratory-tab" *ngIf="selectedLaboratoryData.length > 0">
+                      <h5>Laboratory Details</h5>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Doctor Name</th>
+                            <th>Lab Name</th>
+                            <th>Test</th>
+                            <th>Manage</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let laboratory of selectedLaboratoryData">
+                            <td>{{ laboratory.doctorName }}</td>
+                            <td>{{ laboratory.labName }}</td>
+                            <td>{{ laboratory.test }}</td>
+                            <td>{{ laboratory.manage }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+  
+                    <!-- Document Content -->
+                    <div class="tab-pane fade" id="pills-document" role="tabpanel" aria-labelledby="pills-document-tab" *ngIf="selectedDocumentData.length > 0">
+                      <h5>Document Details</h5>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Doctor</th>
+                            <th>Document Category</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let document of selectedDocumentData">
+                            <td>{{ document.doctor }}</td>
+                            <td>{{ document.documentCategory }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- No details available message -->
+                <div *ngIf="!hasAnyTabData">
+                  No details available for the selected case.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

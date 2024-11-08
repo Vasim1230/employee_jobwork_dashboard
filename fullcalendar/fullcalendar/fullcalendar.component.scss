@@ -1,0 +1,47 @@
+/* Ensure the container takes full width and height */
+.container {
+  width: 100%;
+  height: 100vh; /* Full height of the viewport */
+}
+
+/* Make sure the calendar has a defined height and width */
+#calendar {
+  width: 100%;
+  height: 600px; /* You can adjust this height to fit your layout */
+  margin-top: 20px; /* Optional: Add some space above the calendar */
+  border: 1px solid #ddd; /* Optional: Add border around the calendar */
+}
+
+/* Style for external events container */
+#external-events {
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.fc-event {
+  background-color: #3788d8;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+
+.fc-event:hover {
+  background-color: #0056b3;
+}
+
+/* Optional: Style the checkbox */
+#drop-remove {
+  margin-top: 10px;
+}
+
+/* Optional: Make the calendar more responsive */
+@media (max-width: 768px) {
+  #calendar {
+    height: 500px; /* Smaller height on mobile devices */
+  }
+}
+

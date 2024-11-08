@@ -1,0 +1,209 @@
+<div class="row">
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <Strong>timesheet</Strong>
+          </div>
+          <div class="card-body">
+            <div class="d-flex flex-wrap align-items-center mb-3">
+              <div class="me-2">
+                <label for="jobworkHolder">userName:</label>
+                <select id="jobworkHolder" class="form-control" (change)="setJobworkHolder($event.target.value)">
+                  <option *ngFor="let holder of uniqueJobworkHolders" [value]="holder">{{ holder }}</option>
+                </select>
+              </div>
+              <div class="me-2">
+                <label for="start-date">From:</label>
+                <input type="date" id="start-date" class="form-control" [(ngModel)]="startDate" (change)="updateChartData()">
+              </div>
+              <div class="me-2">
+                <label for="end-date">To:</label>
+                <input type="date" id="end-date" class="form-control" [(ngModel)]="endDate" (change)="updateChartData()">
+              </div>
+            </div>
+      
+        <div *ngIf="chartOptions">
+          <apx-chart 
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [dataLabels]="chartOptions.dataLabels"
+            [plotOptions]="chartOptions.plotOptions"
+            [yaxis]="chartOptions.yaxis"
+            [legend]="chartOptions.legend"
+            [fill]="chartOptions.fill"
+            [stroke]="chartOptions.stroke"
+            [tooltip]="chartOptions.tooltip"
+            [xaxis]="chartOptions.xaxis"
+          ></apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <strong>timesheet</strong>
+        </div>
+      <div class="card-body">
+        <div class="d-flex flex-wrap align-items-center mb-3">
+          
+          <div class="me-3">
+            <label for="start-date">From:</label>
+            <input type="date" id="start-date" class="form-control" [(ngModel)]="startDate" (change)="updateChartData1()">
+          </div>
+          <div class="me-3">
+            <label for="end-date">To:</label>
+            <input type="date" id="end-date" class="form-control" [(ngModel)]="endDate" (change)="updateChartData1()">
+          </div>
+        </div>
+      <div class="card-body">
+        <div *ngIf="chartOptions2">
+          <apx-chart 
+            [series]="chartOptions2.series"
+            [chart]="chartOptions2.chart"
+            [xaxis]="chartOptions2.xaxis"
+            [stroke]="chartOptions2.stroke"
+            [dataLabels]="chartOptions2.dataLabels"
+            [tooltip]="chartOptions2.tooltip"
+          ></apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+              <strong>Timesheet</strong>
+          </div>
+          <div class="card-body">
+              <div class="d-flex flex-wrap align-items-center mb-2"> 
+                  <div class="me-2">
+                      <label for="start-date">From:</label>
+                      <input type="date" id="start-date" class="form-control form-control-sm" [(ngModel)]="startDate1" style="width: 90px; height: 30px;">
+                  </div>
+                  <div class="me-2">
+                      <label for="end-date">To:</label>
+                      <input type="date" id="end-date" class="form-control form-control-sm" [(ngModel)]="endDate1" style="width: 90px; height: 30px;">
+                  </div>
+                  <div class="me-2">
+                      <label for="names">Names:</label>
+                      <p-multiSelect 
+                          [options]="usernames" 
+                          [(ngModel)]="selectedUsernames" 
+                       
+                          [showToggleAll]="false"
+                          [style]="{'width': '100px', 'height': '30px'}">
+                      </p-multiSelect>
+                  </div>
+                  <div class="me-2">
+                      <label for="categories">Categories:</label>
+                      <p-multiSelect 
+                          [options]="categories" 
+                          [(ngModel)]="selectedCategories" 
+                            
+                          [showToggleAll]="false"
+                          display="chip" 
+                          [showClear]="true"
+                          [style]="{'width': '100px', 'height': '30px'}">
+                      </p-multiSelect>
+                  </div>
+                  <div class="me-3 d-flex flex-column align-items-center"> 
+                    <label for="action">Action:</label>
+                    <i class="fa fa-check" style="font-size: 17px; cursor: pointer;" (click)="applyFilters1()"></i>
+                    <i class="fa fa-times" style="font-size: 17px; cursor: pointer; margin-bottom: -4px;" (click)="clearSelections1()"></i> <!-- X mark icon -->
+                </div>
+              </div>
+            <div class="card-body">
+              <div *ngIf="chartOptions3">
+                <apx-chart 
+                  [series]="chartOptions3.series"
+                  [chart]="chartOptions3.chart"
+                  [xaxis]="chartOptions3.xaxis"
+                  [stroke]="chartOptions3.stroke"
+                  [dataLabels]="chartOptions3.dataLabels"
+                  [tooltip]="chartOptions3.tooltip"
+                ></apx-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <strong>Timesheet</strong>
+            </div>
+            <div class="card-body">
+                <div class="d-flex flex-wrap align-items-center mb-2">
+                    <div class="me-2">
+                        <label for="start-date">From:</label>
+                        <input type="date" id="start-date" class="form-control form-control-sm" [(ngModel)]="startDate2" style="width: 90px; height: 30px;">
+                    </div>
+                    <div class="me-2">
+                        <label for="end-date">To:</label>
+                        <input type="date" id="end-date" class="form-control form-control-sm" [(ngModel)]="endDate2" style="width: 90px; height: 30px;">
+                    </div>
+                    <div class="me-2">
+                        <label for="names">Names:</label>
+                        <p-multiSelect 
+                            [options]="usernames" 
+                            [(ngModel)]="selectedusernames" 
+                           
+                            [showToggleAll]="false"
+                            [style]="{'width': '100px', 'height': '30px'}">
+                        </p-multiSelect>
+                    </div>
+                    <div class="me-2">
+                        <label for="categories">Categories:</label>
+                        <p-multiSelect 
+                            [options]="categories" 
+                            [(ngModel)]="selectedcategories" 
+                              
+                            [showToggleAll]="false"
+                            display="chip" 
+                            [showClear]="true"
+                            [style]="{'width': '100px', 'height': '30px'}">
+                        </p-multiSelect>
+                    </div>
+                    <div class="me-3 d-flex flex-column align-items-center"> 
+                      <label for="action">Action:</label>
+                      <i class="fa fa-check" style="font-size: 17px; cursor: pointer;" (click)="applyFilters2()"></i>
+                      <i class="fa fa-times" style="font-size: 17px; cursor: pointer; margin-bottom: -4px;" (click)="clearSelections2()"></i> <!-- X mark icon -->
+                  </div>
+                </div>
+            <div class="card-body">
+              <div *ngIf="chartOptions4">
+                <apx-chart
+                [series]="chartOptions4.series"
+                [chart]="chartOptions4.chart"
+                [dataLabels]="chartOptions4.dataLabels"
+                [plotOptions]="chartOptions4.plotOptions"
+                [responsive]="chartOptions4.responsive"
+                [xaxis]="chartOptions4.xaxis"
+                [legend]="chartOptions4.legend"
+                [fill]="chartOptions4.fill"
+              ></apx-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  
+
+
+
+
+
+  
